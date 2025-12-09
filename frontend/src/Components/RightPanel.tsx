@@ -57,13 +57,16 @@ const RightPanel = () => {
 
     try {
       setIsSigning(true);
-      const response = await fetch("http://localhost:5000/api/sign/sign-pdf", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        "https://bolosign-uow7.onrender.com/api/sign/sign-pdf",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
 
       const data = await response.json();
       setSignedUrl(data.url);
@@ -131,7 +134,7 @@ const RightPanel = () => {
 
       {signedUrl && (
         <a
-          href={`http://localhost:5000${signedUrl}`}
+          href={`https://bolosign-uow7.onrender.com${signedUrl}`}
           target="_blank"
           className="block w-full py-2 px-3 text-white bg-green-600 hover:bg-green-700 rounded-lg text-sm font-medium text-center transition focus:outline-none focus:ring-2 focus:ring-green-500"
         >
